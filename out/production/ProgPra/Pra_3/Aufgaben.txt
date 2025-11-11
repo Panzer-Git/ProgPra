@@ -1,0 +1,36 @@
+Nr.1
+a)
+
+I. 	is ok
+II.	kinda ok, nicht ganz ersichtlich, was benannt wird
+III. 	Nicht erkennbare Kapitlisierungsstruktur
+IV.	zu viele zahlen schrägstrich eigentlich unerwünscht, wegen sieht aus wie Dateipfad
+V.	verwirrend, schlecht kopierbar
+VI.	Nach Programmiersprache benannt, wahrscheinlich verwirrend
+VII.	Variablenname wie eine Datei, verusacht wahrscheinlich Probleme
+VIII. 	viel zu lang, überschreitet Zeilen
+IX.	Nur Zahl?, was soll die Variable ausdrücken?
+X. 	kombinierte Zahlensysteme schlecht
+
+Nr. 2
+a)
+
+I.	45
+II.	-1
+III.	1.5
+IV.	f keine Operation
+V.	-2
+VI.	f aneinandergereihte Operatoren
+VII.	-5
+VIII.	f aneinandergereihte Operatoren
+IX.	f kein Operator
+X.	2/7+1
+XI.	2
+
+Nr. 3
+
+a)	3.14159
+b)	4.14159
+c)	8/3 = 2,666...
+d)	8/3,14159 = 2,546...
+e) 	2	

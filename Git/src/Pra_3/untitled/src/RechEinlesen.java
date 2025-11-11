@@ -1,3 +1,5 @@
+package Pra_3.untitled.src;
+
 public class RechEinlesen {
     void einlesen() {
         EinUndAusgabe einUndAusgabe = new EinUndAusgabe();

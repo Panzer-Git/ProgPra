@@ -1,3 +1,5 @@
+package Pra_3.untitled.src;
+
 public class Einlesen {
     void starte() {
         EinUndAusgabe einundausgabe = new EinUndAusgabe();

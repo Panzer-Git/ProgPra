@@ -1,3 +1,5 @@
+package Pra_4.aufgabe_4;
+
 public class SchnickSchnackSchnuck {
     public static void main(String[] args) {
         SchnickSchnackSchnuck spiel = new SchnickSchnackSchnuck();

@@ -1,3 +1,5 @@
+package Pra_3.untitled.src;
+
 public class Rechentest {
     void starte() {
         RechEinlesen rechEinlesen = new RechEinlesen();

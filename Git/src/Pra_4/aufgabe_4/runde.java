@@ -1,3 +1,5 @@
+package Pra_4.aufgabe_4;
+
 import java.util.Scanner;
 
 public class runde {

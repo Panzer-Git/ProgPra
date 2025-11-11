@@ -1,4 +1,4 @@
-/* Einfache Klasse, um direkt Eingaben von der Tastatur/
+package Pra_3.untitled.src;/* Einfache Klasse, um direkt Eingaben von der Tastatur/
  * Konsole zu lesen. Die Methoden fangen Fehler ab und geben bei
  * falschen Eingaben "Standardwerte" zur&uuml;ck.
  * @author kleuker

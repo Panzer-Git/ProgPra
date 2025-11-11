@@ -1,3 +1,5 @@
+package Pra_3.untitled.src;
+
 public class P3A2 {
     public static void main(String[] args) {
         P3A2 p3A2 = new P3A2();

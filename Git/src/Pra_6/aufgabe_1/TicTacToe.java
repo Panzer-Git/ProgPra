@@ -19,18 +19,25 @@ public class TicTacToe {
         System.out.println("Start des TicTacToe-Spiels");
         this.zeigeFeld();
         while (this.checkGewinn() == '-') {
-            this.runde();
+            this.runde('X');
+            if (this.checkGewinn() == 'X') {
+                break;
+            }
+            this.runde('O');
         }
         System.out.println(this.checkGewinn() + "-Spieler hat gewonnen!");
     }
 
-    public void runde() {
-        System.out.println("X-Spieler, wo setzt du dein Zeichen (x,y)?");
-        this.setzeZeichen('X');
-        this.zeigeFeld();
-        System.out.println("O-Spieler, wo setzt du dein Zeichen (x,y)?");
-        this.setzeZeichen('O');
-        this.zeigeFeld();
+    public void runde(char spieler) {
+        if (spieler == 'X') {
+            System.out.println("X-Spieler, wo setzt du dein Zeichen (x,y)?");
+            this.setzeZeichen('X');
+            this.zeigeFeld();
+        } else {
+            System.out.println("O-Spieler, wo setzt du dein Zeichen (x,y)?");
+            this.setzeZeichen('O');
+            this.zeigeFeld();
+        }
     }
 
     public char checkGewinn() {
@@ -61,6 +68,11 @@ public class TicTacToe {
         String answer = this.scanner.nextLine();
         int x = Integer.parseInt(answer.split(",")[0]);
         int y = Integer.parseInt(answer.split( ",")[1]);
-        this.feld[y][x] = Z;
+        if (this.feld[y-1][x-1] == '-') {
+            this.feld[y-1][x-1] = Z;
+        } else {
+            System.out.println("Die Stelle is bereits  besetzt!");
+            setzeZeichen(Z);
+        }
     }
 }

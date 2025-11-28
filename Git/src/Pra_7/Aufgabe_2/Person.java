@@ -1,12 +1,14 @@
 package Pra_7.Aufgabe_2;
 
+import java.util.ArrayList;
+
 public class Person {
     String Vorname;
     String Nachname;
 
     Person(String Vorname, String Nachname) {
-        this.Vorname = Vorname;
-        this.Nachname = Nachname;
+        setVorname(Vorname);
+        setNachname(Nachname);
     }
 
     public String getVorname() {
@@ -23,5 +25,14 @@ public class Person {
 
     public void setNachname(String Nachname) {
         this.Nachname = Nachname;
+    }
+
+    public boolean equals(Person p) {
+        return (this.Vorname.equals(p.getVorname()) && this.Nachname.equals(p.getNachname()));
+    }
+
+    @Override
+    public String toString() {
+        return "Person: " + this.Vorname + ", " + this.Nachname;
     }
 }

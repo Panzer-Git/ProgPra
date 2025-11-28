@@ -37,7 +37,6 @@ public class Menge {
         ArrayList<ArrayList<String>> namesList = this.nameList();
         for  (Person p : menge.getMenge()) {
             ArrayList<String> names = nameArray(p);
-
             if (!namesList.contains(names)) {
                 return false;
             }
@@ -45,12 +44,71 @@ public class Menge {
         return true;
     }
 
+    public boolean equalsi(Menge menge) {
+        for (Person p1 : menge.getMenge()) {
+            for (Person p2 : this.getMenge()) {
+                if (!p1.equals(p2)) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    public void add(Person p) {
+        if (!this.checkInMenge(p)) {
+            this.set.add(p);
+        }
+    }
+
+    public void remove(Person p) {
+        this.set.remove(p);
+    }
+
     public boolean checkInMenge(Person person) {
         for (Person p : this.set) {
-            if (p.getVorname().equals(person.getVorname()) && p.getNachname().equals(person.getNachname())) {
+            if (p.equals(person)) {
                 return true;
             }
         }
         return false;
+    }
+
+    public Menge intersectionWith(Menge menge) {
+        Menge resultMenge = new Menge();
+        for (Person p : menge.getMenge()) {
+            if (this.checkInMenge(p)) {
+                resultMenge.add(p);
+            }
+        }
+        return resultMenge;
+    }
+
+    public Menge unificationWith(Menge menge) {
+        Menge resultMenge = new Menge(menge);
+        for (Person p : this.getMenge()) {
+            resultMenge.add(p);
+        }
+        return resultMenge;
+    }
+
+    public Menge differenceWith(Menge sub) {
+        Menge resultMenge = new Menge();
+        resultMenge.set = new ArrayList<Person>(this.getMenge());
+        for (Person subP : sub.getMenge()) {
+            if (resultMenge.checkInMenge(subP)) {
+                resultMenge.remove(subP);
+            }
+        }
+        return resultMenge;
+    }
+
+    @Override
+    public String toString() {
+        String result = "";
+        for (Person p : this.set) {
+            result = result + p.getVorname() + ", " + p.getNachname() + ";\n";
+        };
+        return "Menge Content:\n" + result;
     }
 }

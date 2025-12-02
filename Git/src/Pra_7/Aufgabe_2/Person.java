@@ -1,5 +1,7 @@
 package Pra_7.Aufgabe_2;
 
+import java.util.ArrayList;
+
 public class Person {
     String Vorname;
     String Nachname;

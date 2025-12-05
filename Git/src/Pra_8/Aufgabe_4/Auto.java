@@ -16,14 +16,35 @@ public class Auto {
         return resultfeld;
     }
 
-    public Auto(int[][] pos, boolean isvertical, char name) {
+    public Auto(int[][] pos, char name) {
         this.pos = pos;
-        this.isVertical = isvertical;
+        if (pos[0][0] == pos[1][0]) {
+            this.isVertical = true;
+        } else {
+            this.isVertical = false;
+        }
         this.name = name;
         this.laenge = pos.length;
     }
 
+    public boolean checkGewinn() {
+        if (this.pos[0][1] == 5 || this.pos[1][1] == 5 || this.pos[2][1] == 5) {
+            return true;
+        }
+        return false;
+    }
 
+    public void addToPos(int[] pos) {
+        int[][] tmp = {{},{},{}};
+        tmp[0] = this.pos[0];
+        if (!(this.pos[1] == null)) {
+            tmp[1] = this.pos[1];
+        } else if (!(this.pos[2] == null)){
+            this.pos[2] = pos;
+        }
+    }
 
+    public void updateLaenge() {
 
+    }
 }

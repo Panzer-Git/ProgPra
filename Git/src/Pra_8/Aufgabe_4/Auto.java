@@ -10,18 +10,18 @@ public class Auto {
     static char[][] ganzFeld;
 
     public char[][] setzeDich(char[][] vorfeld) {
-        char[][] resultfeld = vorfeld;
-        resultfeld[pos[0][0]][pos[0][1]] = name;
-        resultfeld[pos[1][0]][pos[1][1]] = name;
+        vorfeld[pos[0][0]][pos[0][1]] = name;
+        vorfeld[pos[1][0]][pos[1][1]] = name;
         if (this.laenge == 3) {
-            resultfeld[pos[2][0]][pos[2][1]] = name;
+            vorfeld[pos[2][0]][pos[2][1]] = name;
         }
-        return resultfeld;
+        return vorfeld;
     }
 
-    public Auto(int[][] pos, char name) {
-        this.pos = pos;
+    public Auto(int[] firstPos, char name) {
+        this.pos = new int[][]{firstPos};
         this.name = name;
+        this.laenge = 1;
     }
 
     public boolean checkGewinn() {
@@ -37,28 +37,14 @@ public class Auto {
         return false;
     }
 
-    public void addToPos(int[] pos) {
-        int[][] tmp = {{}, {}, {}};
-        tmp[0] = this.pos[0];
-        if (!(this.pos[1] == null)) {
-            tmp[1] = this.pos[1];
-        } else if (!(this.pos[2] == null)) {
-            this.pos[2] = pos;
-        }
-        this.updateLaengeAndVertical();
-    }
-
-    public void updateLaengeAndVertical() {
-        int[] empty = {};
-        if (Arrays.equals(this.pos[2], empty)) {
+    public void addToPos(int[] newPos) {
+        if (this.laenge == 1) {
+            this.pos = new int[][]{this.pos[0], newPos};
             this.laenge = 2;
-        } else {
+            this.isVertical = this.pos[0][0] != newPos[0];
+        } else if (this.laenge == 2) {
+            this.pos = new int[][] {this.pos[0], this.pos[1], newPos};
             this.laenge = 3;
-        }
-        if (this.pos[0][0] == this.pos[1][0]) {
-            this.isVertical = true;
-        } else {
-            this.isVertical = false;
         }
     }
 

@@ -1,32 +1,28 @@
 package Pra_8.Aufgabe_4;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Scanner;
 
 public class Spielfeld {
-    HashMap<Character, Auto> feld = new HashMap();
+    HashMap<Character, Auto> feld = new HashMap<>();
     Scanner input;
 
     public Spielfeld(String construction) {
-        input = new Scanner(System.in);
-        HashMap<Character, Auto> vorfeld = new HashMap();
-        String used = "";
+        HashMap<Character, Auto> vorfeld = new HashMap<>();
         for (int i = 0; i < construction.length(); i++) {
+            char currentChar = construction.charAt(i);
             int[] strPos = iPos(i);
-            if (construction.charAt(i) != '_') {
-                if (!this.feld.containsKey(construction.charAt(i))) {
-                    int[][] tpos = {{strPos[0], strPos[1]},{},{}};
-                    vorfeld.put(construction.charAt(i), new Auto(tpos,construction.charAt(i)));
-                    used += construction.charAt(i);
+            if (currentChar != '_') {
+                if (!vorfeld.containsKey(currentChar)) {
+                    vorfeld.put(currentChar, new Auto(strPos,currentChar));
                 } else {
-                    this.feld.get(construction.charAt(i)).addToPos(strPos);
+                    vorfeld.get(construction.charAt(i)).addToPos(strPos);
                 }
             }
-            i++;
         }
+        this.input = new Scanner(System.in);
         this.feld = vorfeld;
-        System.out.println(used);
-        System.out.println(feldStatus());
     }
 
     public void printFeld() {
@@ -36,13 +32,13 @@ public class Spielfeld {
         }
         String resultString = "";
         for (int i = 0; i < 6; i++) {
-            resultString += "+---+---+---+---+---+\n";
+            resultString += "+---+---+---+---+---+---+\n";
             for (int j = 0; j < 6; j++) {
-                resultString += "|" + vorfeld[i][j] + " ";
+                resultString += "|" + vorfeld[i][j] + "  ";
             }
             resultString += "|\n";
         }
-        resultString += "+---+---+---+---+---+\n";
+        resultString += "+---+---+---+---+---+---+\n";
         System.out.println(resultString);
     }
 
@@ -69,17 +65,19 @@ public class Spielfeld {
     }
 
     public int[] iPos(int i) {
-        int[] strPos = new int[2];
-        if (i > 5) {
-            strPos[0] = 1;
-        } else if (i > 11) {
-            strPos[0] = 2;
-        } else if (i > 17) {
-            strPos[0] = 3;
+        int[] strPos = new int[]{0,0};
+        if (i > 29) {
+            strPos[0] = 5;
         } else if (i > 23) {
             strPos[0] = 4;
+        } else if (i > 17) {
+            strPos[0] = 3;
+        } else if (i > 11) {
+            strPos[0] = 2;
+        } else if (i > 5) {
+            strPos[0] = 1;
         }
-        strPos[1] = i - strPos[0]*5;
+        strPos[1] = i - strPos[0]*6;
         return strPos;
     }
 }

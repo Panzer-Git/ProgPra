@@ -8,9 +8,7 @@ public class Rushhour {
 
     public void start() {
         System.out.println("Feldkonstruktion:");
-        this.feld = new Spielfeld("122_3_145_36145**67778_6__98aabb9cc_"
-                //input.nextLine()
-                );
+        this.feld = new Spielfeld(input.nextLine());
         while (!feld.checkGewinn()) {
             feld.printFeld();
             feld.zug();

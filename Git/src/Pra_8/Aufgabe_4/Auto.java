@@ -50,10 +50,10 @@ public class Auto {
 
     public boolean move(char move) {
         if (move == 'l' && !this.isVertical && checkFrei('l')) {
-            this.pos[0][1] += 1;
-            this.pos[1][1] += 1;
+            this.pos[0][1] -= 1;
+            this.pos[1][1] -= 1;
             if (this.laenge == 3) {
-                this.pos[2][1] += 1;
+                this.pos[2][1] -= 1;
             }
         } else if (move == 'r' && !this.isVertical && checkFrei('r')) {
             for (int[] i1 : this.pos) {
@@ -61,11 +61,11 @@ public class Auto {
             }
         } else if (move == 'u' && this.isVertical && checkFrei('u')) {
             for (int[] i1 : this.pos) {
-                i1[0] += 1;
+                i1[0] -= 1;
             }
         } else if (move == 'd' && this.isVertical && checkFrei('d')) {
             for (int[] i1 : this.pos) {
-                i1[0] -= 1;
+                i1[0] += 1;
             }
         } else if (move == 'q') {
             return false;

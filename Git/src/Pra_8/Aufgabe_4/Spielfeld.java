@@ -32,13 +32,13 @@ public class Spielfeld {
         }
         String resultString = "";
         for (int i = 0; i < 6; i++) {
-            resultString += "+---+---+---+---+---+---+\n";
+            resultString += "+--+--+--+--+--+--+\n";
             for (int j = 0; j < 6; j++) {
-                resultString += "|" + vorfeld[i][j] + "  ";
+                resultString += "|" + vorfeld[i][j] + " ";
             }
             resultString += "|\n";
         }
-        resultString += "+---+---+---+---+---+---+\n";
+        resultString += "+--+--+--+--+--+--+\n";
         System.out.println(resultString);
     }
 
@@ -54,14 +54,19 @@ public class Spielfeld {
     }
 
     public void zug() {
+        Auto.ganzFeld = this.feldStatus();
         System.out.println("Wahl eines Autos (Zeichen angeben):");
         char inputChar = input.nextLine().charAt(0);
-        System.out.println("Richtung (l = links, r = rechts, u = hoch, d = runter, q = zurück):");
-        char inputChar2 = input.nextLine().charAt(0);
-        if (!this.feld.get(inputChar).move(inputChar2)) {
+        if (!this.feld.containsKey(inputChar)) {
+            System.out.println("Kein valides Auto");
             this.zug();
+        } else {
+            System.out.println("Richtung (l = links, r = rechts, u = hoch, d = runter, q = zurück):");
+            char inputChar2 = input.nextLine().charAt(0);
+            if (!this.feld.get(inputChar).move(inputChar2)) {
+                this.zug();
+            }
         }
-        Auto.ganzFeld = this.feldStatus();
     }
 
     public int[] iPos(int i) {

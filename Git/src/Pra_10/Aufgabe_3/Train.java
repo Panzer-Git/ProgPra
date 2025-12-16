@@ -6,6 +6,14 @@ public class Train {
         this.anchor = locomotive;
     }
 
+    void add(Car car) {
+        if (this.anchor.getFirst() != null) {
+            this.getLastCar().setNext(car);
+        } else {
+            this.anchor.setFirst(car);
+        }
+    }
+
     void print() {
 
     }
@@ -34,5 +42,13 @@ public class Train {
 
     void revert() {
 
+    }
+
+    Car getLastCar() {
+        Car currentCar = this.anchor.getFirst();
+        while (currentCar.getNext() != null) {
+            currentCar = currentCar.getNext();
+        }
+        return currentCar;
     }
 }

@@ -3,9 +3,11 @@ package Pra_10.Aufgabe_1;
 abstract class Frage {
     String text; // Fragetext
     int punkte; // zu erreichende Punktzahl
-    Frage(String text, int punkte) {
+    String korrekt;
+    Frage(String text, int punkte, String korrekt) {
         this.text = text;
         this.punkte = punkte;
+        this.korrekt = korrekt;
     }
     // Frage auf den Bildschirm ausgeben
     void frageStellen() {

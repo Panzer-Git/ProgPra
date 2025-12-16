@@ -1,13 +1,18 @@
 package Pra_10.Aufgabe_1;
 
-public class Mehrfachauswahl extends Frage {
+import java.util.Objects;
 
-    Mehrfachauswahl(String text, int punkte) {
-        super(text, punkte);
+public class Mehrfachauswahl extends Frage {
+    Mehrfachauswahl(String text, int punkte, String korrekt) {
+        super(text, punkte, korrekt);
     }
 
     @Override
     void frageBeantworten(Pruefling person) {
-
+        IO.println(person.getName() + ": ");
+        String antwort = IO.readString();
+        if (antwort.equals(this.korrekt)) {
+            person.gebePunkte(this.punkte);
+        }
     }
 }

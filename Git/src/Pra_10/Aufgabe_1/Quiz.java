@@ -6,13 +6,23 @@ public class Quiz {
     private ArrayList<Frage> quizFragen = new ArrayList<>();
     private ArrayList<Pruefling> prueflinge = new ArrayList<>();
 
+    Quiz(ArrayList<Pruefling> prueflinge) {
+        this.prueflinge = prueflinge;
+    }
+
     void start() {
-        for (Frage frage : quizFragen) {
+        for (Frage frage : this.quizFragen) {
             frage.frageStellen();
+            for (Pruefling pruefling : this.prueflinge) {
+                frage.frageBeantworten(pruefling);
+            }
+        }
+        for (Pruefling pruefling : this.prueflinge) {
+            System.out.println(pruefling.getName() + ": " + pruefling.getPunkte());
         }
     }
 
     void addToFragen(Frage frage) {
-        quizFragen.add(frage);
+        this.quizFragen.add(frage);
     }
 }

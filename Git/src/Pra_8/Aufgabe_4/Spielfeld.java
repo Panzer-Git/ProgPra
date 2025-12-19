@@ -1,6 +1,5 @@
 package Pra_8.Aufgabe_4;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Scanner;
 

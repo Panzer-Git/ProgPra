@@ -26,15 +26,10 @@ public class Auto {
 
     public boolean checkGewinn() {
         if (this.laenge == 3) {
-            if (this.pos[0][1] == 5 || this.pos[1][1] == 5 || this.pos[2][1] == 5) {
-                return true;
-            }
+            return this.pos[0][1] == 5 || this.pos[1][1] == 5 || this.pos[2][1] == 5;
         } else {
-            if (this.pos[0][1] == 5 || this.pos[1][1] == 5) {
-                return true;
-            }
+            return this.pos[0][1] == 5 || this.pos[1][1] == 5;
         }
-        return false;
     }
 
     public void addToPos(int[] newPos) {

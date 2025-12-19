@@ -5,6 +5,11 @@ public class Car {
     private int kapazitaet;
     private Car next;
 
+    Car(int laenge, int kapazitaet) {
+        this.laenge = laenge;
+        this.kapazitaet = kapazitaet;
+    }
+
     int getLaenge() {
         return this.laenge;
     }
@@ -26,5 +31,10 @@ public class Car {
 
     void setNext(Car first) {
         this.next = first;
+    }
+
+    @Override
+    public String toString() {
+        return "Wagen mit Länge: " + this.getLaenge() + " und Kapazität: " + this.getKapazitaet();
     }
 }

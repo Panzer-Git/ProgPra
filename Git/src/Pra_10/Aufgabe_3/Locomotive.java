@@ -5,6 +5,11 @@ public class Locomotive {
     private int typ;
     private Car first;
 
+    Locomotive(int laenge, int typ) {
+        this.laenge = laenge;
+        this.typ = typ;
+    }
+
     int getLaenge() {
         return this.laenge;
     }
@@ -26,5 +31,10 @@ public class Locomotive {
 
     void setFirst(Car first) {
         this.first = first;
+    }
+
+    @Override
+    public String toString() {
+        return "Lokomotive mit Länge: " + this.getLaenge() + " vom Typ: " + this.getTyp();
     }
 }
